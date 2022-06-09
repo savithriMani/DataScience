@@ -16,23 +16,35 @@ from dash import html
 from dash import dash_table
 from dash.dependencies import Input, Output
 
-colors = ["black", "blue", "red", "yellow", "pink", "orange"]
+layout_colors = {
+    'headings' : '#B8255F',
+    'sub_headings' : '#AF38EB',
+    'Main_heading' : '#008080'
+}
 df_reviews_ratings=pd.DataFrame()
 app = dash.Dash(__name__)
 
 app.layout = html.Div(
     children=[
-        html.H1('Enter the product URL : '),
+        html.H1('Enter the product URL : ',
+                    style = {  'textAlign' : 'center',
+                    'color' : layout_colors['Main_heading']}),
         html.Br(),
         dcc.Input(
             id="user_entered_url",
             placeholder = 'Enter the URL ',
             type = 'url',
-            style = {'width' : '50%'},
+            style = {'width' : '50%' , 'margin-left': '350px'},
             value = ''
         ),
         html.Br(),
-        html.Button(id='URL_Submit_button', n_clicks=0, children="Submits"),
+        html.Button(id='URL_Submit_button', n_clicks=0, children="Submit" ,
+                       style = {'background-color': 'white',
+                                    'color': 'black',
+                                    'height': '50px',
+                                    'width': '100px',
+                                    'margin-top' : '10px',
+                                    'margin-left': '700px'}),
         html.Br(),
         html.Br(),
         dash_table.DataTable(id='Extracted_Data',
