@@ -44,22 +44,31 @@ app = dash.Dash(__name__)
 
 layout_colors = {
     'headings' : '#B8255F',
-    'sub_headings' : '#AF38EB'
+    'sub_headings' : '#AF38EB',
+    'Main_heading' : '#008080'
 }
 
 app.layout = html.Div(
     children=[
-        html.H1('Enter the product URL : '),
-
+       html.H1('Enter the product URL : ',
+                    style = {  'textAlign' : 'center',
+                    'color' : layout_colors['Main_heading']}),
+        html.Br(),
         dcc.Input(
+            id="user_entered_url",
             placeholder = 'Enter the URL ',
-            type = 'text',
-            style = {'width' : '50%'},
+            type = 'url',
+            style = {'width' : '50%' , 'margin-left': '350px'},
             value = ''
         ),
         html.Br(),
-        html.Br(),
-        html.Button(id='URL_Submit_button', n_clicks=0, children="Submits"),
+        html.Button(id='URL_Submit_button', n_clicks=0, children="Submit" ,
+                       style = {'background-color': 'white',
+                                    'color': 'black',
+                                    'height': '50px',
+                                    'width': '100px',
+                                    'margin-top' : '10px',
+                                    'margin-left': '700px'}),
         html.Br(),
         html.Br(),
         html.H2('The Extracted Data Sample is :' ,  
