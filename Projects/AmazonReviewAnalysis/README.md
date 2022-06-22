@@ -9,5 +9,10 @@ Objective :
                   Used Auto_VIML for automatic modeling 
                   Finally deployment using Dash
                
+               
             
           
+
+
+https://user-images.githubusercontent.com/97292282/174964594-2542d4e9-7be9-4ba2-ba09-16b9f199068f.mp4
+
